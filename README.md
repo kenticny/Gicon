@@ -7,7 +7,7 @@ Get the real path of favicon from website.
 
 ### Usage
 
-```javascrpit
+```javascript
 
 var gicon = require("gicon");
 
