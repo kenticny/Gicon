@@ -5,6 +5,12 @@ var $ = require("cheerio");
 var request = require("./utils/request");
 var error = require("./utils/errors");
 
+/**
+ * get favicon path or buffer
+ * @param  {[type]}   domain   [description]
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
 exports.favicon = function(domain, callback) {
   if(typeof domain !== "string" || typeof callback !== "function") {
     return callback(error.MISSING_PARAMS());
