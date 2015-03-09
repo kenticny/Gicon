@@ -1,4 +1,8 @@
 # Gicon
+
+[![Build Status](https://travis-ci.org/kenticny/Gicon.svg?branch=master)](https://travis-ci.org/kenticny/Gicon)
+[![Gitter](https://img.shields.io/badge/gitter-join%20chat-green.svg?style=flat)](https://gitter.im/kenticny/Gicon?utm_source=badge)
+
 Get the real path of favicon from website.
 
 ### Installation
