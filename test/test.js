@@ -1,5 +1,5 @@
 // var assert = require("assert");
-
+var fs = require("fs");
 var gicon = require("../index");
 
 describe("GetPath", function() {
@@ -18,5 +18,14 @@ describe("GetPath", function() {
       done();
     });
   });
+
+  it("get the favicon file buffer", function(done) {
+    gicon.favicon("github.com", function(err, path, buffer) {
+      if(err) { throw err; }
+      // fs.writeFileSync("github.com.png", buffer);
+      done();
+    });
+  });
+
 });
 

@@ -21,17 +21,17 @@ exports.favicon = function(domain, callback) {
   followRedirectUrl(domain, function(err, url) {
     url = url.replace(/\/$/, "")
     if(err) { return callback(err); }
-    getFaviconPath(url, function(err, path) {
+    getFaviconPath(url, function(err, path, buffer) {
       if(err) { return callback(err); }
 
-      if(path) { 
-        return callback(null, path); 
+      if(path && buffer) { 
+        return callback(null, path, buffer); 
       }
-      getFaviconLink(url, function(err, path) {
+      getFaviconLink(url, function(err, path, buffer) {
         if(err) { return callback(err); }
 
-        if(path) {
-          return callback(null, path); 
+        if(path && buffer) {
+          return callback(null, path, buffer); 
         }
         callback();
       });

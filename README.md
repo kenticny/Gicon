@@ -15,13 +15,19 @@ Get the real path of favicon from website.
 
 var gicon = require("gicon");
 
+// get favicon url
 gicon.favicon("github.com", function(err, path) {
   // if err is not null, err contains error code and error message
   // path is "https://github.com/favicon.ico";
 });
 
-gicon.favicon("requirejs.org", function(err, path) {
-  // path is "http://requirejs.org/favicon.png"
+// get favicon file buffer
+gicon.favicon("requirejs.org", function(err, path, buffer) {
+  if(err) { throw err; }
+
+  // get the favicon file buffer
+  fs.writeFileSync("requirejs.org.png", buffer);
+
 });
 
 ```
