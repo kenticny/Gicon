@@ -19,8 +19,10 @@ exports.favicon = function(domain, callback) {
     domain = "http://" + domain;
   }
   followRedirectUrl(domain, function(err, url) {
-    url = url.replace(/\/$/, "")
     if(err) { return callback(err); }
+    if(url) {
+      url = url.replace(/\/$/, "")
+    }
     getFaviconPath(url, function(err, path, buffer) {
       if(err) { return callback(err); }
 
