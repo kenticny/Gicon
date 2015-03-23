@@ -54,7 +54,7 @@ function getFaviconPath(domain, callback) {
 
     if(err) { return callback(error.REQUEST_ERROR()); }
 
-    if(resp && resp.statusCode == 200 && body) {
+    if(resp && resp.statusCode == 200 && body.length) {
       return callback(null, domain, body);
     }
     callback();
@@ -78,7 +78,7 @@ function getFaviconLink(domain, callback) {
     }, function(err, resp, body) {
       if(err) { return callback(error.REQUEST_ERROR()); }
       
-      if(resp && resp.statusCode == 200 && body) {
+      if(resp && resp.statusCode == 200 && body.length) {
         return callback(null, path, body);
       }
       callback();
