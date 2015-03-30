@@ -23,21 +23,27 @@ exports.favicon = function(domain, callback) {
     if(url) {
       url = url.replace(/\/$/, "")
     }
-    getFaviconPath(url, function(err, path, buffer) {
+
+    getFaviconLink(url, function(err, path, buffer) {
       if(err) { return callback(err); }
 
-      if(path && buffer) { 
+      if(path && buffer) {
         return callback(null, path, buffer); 
       }
-      getFaviconLink(url, function(err, path, buffer) {
+
+      getFaviconPath(url, function(err, path, buffer) {
         if(err) { return callback(err); }
 
-        if(path && buffer) {
+        if(path && buffer) { 
           return callback(null, path, buffer); 
         }
+        
         callback();
+        
       });
+
     });
+
   });
 };
 
