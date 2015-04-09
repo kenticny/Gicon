@@ -3,7 +3,7 @@ var fs = require("fs");
 var gicon = require("../index");
 
 describe("GetPath", function() {
-  this.timeout(5000);
+  this.timeout(10000);
 
   it("get the favicon.ico", function(done) {
     gicon.favicon("www.baidu.com", function(err, path) {
@@ -29,3 +29,4 @@ describe("GetPath", function() {
 
 });
 
+  
