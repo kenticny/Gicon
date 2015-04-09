@@ -60,12 +60,13 @@ function getFaviconPath(domain, callback) {
 
     if(err) { return callback(error.REQUEST_ERROR()); }
 
-    if(resp && resp.statusCode == 200 && body.length) {
+    if(resp && resp.statusCode == 200 && body.length
+      && /^image/.test(resp.headers["content-type"]) ) {
       return callback(null, domain, body);
     }
     callback();
   });
-};
+}
 
 // 获取Link rel=icon的地址
 function getFaviconLink(domain, callback) {
@@ -83,14 +84,17 @@ function getFaviconLink(domain, callback) {
       encoding: null 
     }, function(err, resp, body) {
       if(err) { return callback(error.REQUEST_ERROR()); }
-      
-      if(resp && resp.statusCode == 200 && body.length) {
+
+      if(resp && resp.statusCode == 200 && body.length
+        && /^image/.test(resp.headers["content-type"]) ) {
         return callback(null, path, body);
       }
       callback();
     }) : callback();
   });
-};
+}
+
+function getDefaultIcon(callback) { }
 
 // 追踪30X的最终地址
 function followRedirectUrl(url, callback) {
@@ -112,4 +116,4 @@ function followRedirectUrl(url, callback) {
       callback(null, path);
     }
   });
-};
+}
